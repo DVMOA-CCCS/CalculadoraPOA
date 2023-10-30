@@ -66,36 +66,48 @@ function calcular1QuantiAmb() {
     var somaAprov = aprovGrupo02 + aprovGrupo03 + aprovGrupo04;
     
     // Grupo 02
-    if(aprovGrupo02 >= metaGrupo02) {
+    if (metaGrupo02 == 0) {
+        var valorGrupo02aux = 0;
+    } 
+    else {
+        if(aprovGrupo02 >= metaGrupo02) {
         var valorGrupo02aux = 1;
     }
     else {
         var valorGrupo02aux = aprovGrupo02/metaGrupo02;
-    }
+    }}
     valorGrupo02 = (valorGrupo02aux * 100).toFixed(2);
     if (metaGrupo02 != 0) {
         aux ++;
     }
 
     // Grupo 03
+    if (metaGrupo03 == 0) {
+        var valorGrupo03aux = 0;
+    }
+    else {
     if(aprovGrupo03 >= metaGrupo03) {
         var valorGrupo03aux = 1;
     }
     else {
         var valorGrupo03aux = aprovGrupo03/metaGrupo03;
-    }
+    }}
     valorGrupo03 = (valorGrupo03aux * 100).toFixed(2);
     if (metaGrupo03 != 0) {
         aux ++;
     }
 
     // Grupo 04
-    if(aprovGrupo04 >= metaGrupo04) {
+    if (metaGrupo04 == 0) {
+        var valorGrupo04aux = 0;
+    }
+    else {
+        if(aprovGrupo04 >= metaGrupo04) {
         var valorGrupo04aux = 1;
     }
     else {
         var valorGrupo04aux = aprovGrupo04/metaGrupo04;
-    }    
+    }   } 
     valorGrupo04 = (valorGrupo04aux * 100).toFixed(2); 
     if (metaGrupo04 != 0) {
         aux ++;
@@ -211,39 +223,66 @@ function calcular1QuantiHospOld() {
     var totalAprovQuantiHospOld = aprovUEOld + aprovEletOld + aprovUCPOld;
 
     // Cálculo Média Aritmética
+    if (metaUEOld == 0) {
+        var aritUEAuxOld = 0;
+    }
+    else {
     var aritUEAuxOld = aprovUEOld/metaUEOld;
+    }
+    if (metaEletOld == 0) {
+        var aritEletAuxOld = 0;
+    }
+    else {
     var aritEletAuxOld = aprovEletOld/metaEletOld;
+    }
+    if (metaUCPOld == 0){
+        var aritUCPAuxOld = 0;
+    }
+    else {
     var aritUCPAuxOld = aprovUCPOld/metaUCPOld;
+    }
 
     // Percentual Atingido Urgência/Emergência
+    if (metaUEOld == 0){
+        var percUEAuxOld = 0;
+    }
+    else {
     if(aprovUEOld >= metaUEOld) {
         var percUEAuxOld = 1;
     }
     else {
         var percUEAuxOld = aritUEAuxOld;
-    }
+    }}
     if (metaUEOld != 0) {
         aux1Old ++;
     }
 
     // Percentual Atingido Eletivas
+    if (metaEletOld == 0) {
+        var percEletAuxOld = 0;
+    }
+    else {
     if(aprovEletOld >= metaEletOld) {
         var percEletAuxOld = 1;
     }
     else {
         var percEletAuxOld = aritEletAuxOld;
-    }
+    }}
     if (metaEletOld != 0) {
         aux1Old ++;
     }
 
      // Percentual Atingido UCP
-     if(aprovUCPOld >= metaUCPOld) {
+     if (metaUCPOld == 0) {
+        percUCPAuxOld = 0;
+     }
+     else {
+        if(aprovUCPOld >= metaUCPOld) {
         var percUCPAuxOld = 1;
     }
     else {
         var percUCPAuxOld = aritUCPAuxOld;
-    }
+    }}
     if (metaUCPOld != 0) {
         aux1Old ++;
     }
