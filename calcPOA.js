@@ -54,16 +54,34 @@ function calcular1QuantiAmb() {
     var aux = 0;
 
     // Obter os valores dos campos de entrada
+    var metaGrupo01 = parseFloat(document.getElementById("metaGrupo01").value) || 0;
     var metaGrupo02 = parseFloat(document.getElementById("metaGrupo02").value) || 0;
     var metaGrupo03 = parseFloat(document.getElementById("metaGrupo03").value) || 0;
     var metaGrupo04 = parseFloat(document.getElementById("metaGrupo04").value) || 0;
+    var aprovGrupo01 = parseFloat(document.getElementById("aprovGrupo01").value) || 0;
     var aprovGrupo02 = parseFloat(document.getElementById("aprovGrupo02").value) || 0;
     var aprovGrupo03 = parseFloat(document.getElementById("aprovGrupo03").value) || 0;
     var aprovGrupo04 = parseFloat(document.getElementById("aprovGrupo04").value) || 0;
 
     // Calcular a soma
-    var somaMeta = metaGrupo02 + metaGrupo03 + metaGrupo04;
-    var somaAprov = aprovGrupo02 + aprovGrupo03 + aprovGrupo04;
+    var somaMeta = metaGrupo01 + metaGrupo02 + metaGrupo03 + metaGrupo04;
+    var somaAprov = aprovGrupo01 + aprovGrupo02 + aprovGrupo03 + aprovGrupo04;
+
+    // Grupo 01
+    if (metaGrupo01 == 0) {
+        var valorGrupo01aux = 0;
+    } 
+    else {
+        if(aprovGrupo01 >= metaGrupo01) {
+        var valorGrupo01aux = 1;
+    }
+    else {
+        var valorGrupo01aux = aprovGrupo01/metaGrupo01;
+    }}
+    valorGrupo01 = (valorGrupo01aux * 100).toFixed(2);
+    if (metaGrupo01 != 0) {
+        aux ++;
+    }
     
     // Grupo 02
     if (metaGrupo02 == 0) {
@@ -114,12 +132,13 @@ function calcular1QuantiAmb() {
     }
 
     // Total
-    var valorPercaux = (valorGrupo02aux + valorGrupo03aux + valorGrupo04aux)/aux;
+    var valorPercaux = (valorGrupo01aux + valorGrupo02aux + valorGrupo03aux + valorGrupo04aux)/aux;
     var valorPerc = (valorPercaux * 100).toFixed(2); 
 
     // Atualizar os campos 
     document.getElementById("totalMeta").textContent = somaMeta.toLocaleString('pt-BR');
     document.getElementById("totalAprov").textContent = somaAprov.toLocaleString('pt-BR');
+    document.getElementById("percGrupo01").textContent = valorGrupo01 + '%';
     document.getElementById("percGrupo02").textContent = valorGrupo02 + '%';
     document.getElementById("percGrupo03").textContent = valorGrupo03 + '%';
     document.getElementById("percGrupo04").textContent = valorGrupo04 + '%';
