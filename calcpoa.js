@@ -27,8 +27,7 @@ function calcularMetas(){
     var metasQuantiAmb = totalQuanti * ambPerc;
     var metasQuantiHosp = totalQuanti * hospPerc;
 
-   
-    // Formatar número
+       // Formatar número
     metasHosp = formatarNumero(metasHosp);
     metasAmb = formatarNumero(metasAmb);
     totalQuanti = formatarNumero(totalQuanti);
