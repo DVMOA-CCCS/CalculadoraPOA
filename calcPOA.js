@@ -58,14 +58,17 @@ function calcular1QuantiAmb() {
     var metaGrupo02 = parseFloat(document.getElementById("metaGrupo02").value) || 0;
     var metaGrupo03 = parseFloat(document.getElementById("metaGrupo03").value) || 0;
     var metaGrupo04 = parseFloat(document.getElementById("metaGrupo04").value) || 0;
+    var metaGrupo07 = parseFloat(document.getElementById("metaGrupo07").value) || 0;
     var aprovGrupo01 = parseFloat(document.getElementById("aprovGrupo01").value) || 0;
     var aprovGrupo02 = parseFloat(document.getElementById("aprovGrupo02").value) || 0;
     var aprovGrupo03 = parseFloat(document.getElementById("aprovGrupo03").value) || 0;
     var aprovGrupo04 = parseFloat(document.getElementById("aprovGrupo04").value) || 0;
+    var aprovGrupo07 = parseFloat(document.getElementById("aprovGrupo07").value) || 0;
+
 
     // Calcular a soma
-    var somaMeta = metaGrupo01 + metaGrupo02 + metaGrupo03 + metaGrupo04;
-    var somaAprov = aprovGrupo01 + aprovGrupo02 + aprovGrupo03 + aprovGrupo04;
+    var somaMeta = metaGrupo01 + metaGrupo02 + metaGrupo03 + metaGrupo04 + metaGrupo07;
+    var somaAprov = aprovGrupo01 + aprovGrupo02 + aprovGrupo03 + aprovGrupo04 + aprovGrupo07;
 
     // Grupo 01
     if (metaGrupo01 == 0) {
@@ -131,8 +134,25 @@ function calcular1QuantiAmb() {
         aux ++;
     }
 
+    // Grupo 07
+    if (metaGrupo07 == 0) {
+        var valorGrupo07aux = 0;
+    }
+    else {
+        if(aprovGrupo07 >= metaGrupo07) {
+        var valorGrupo07aux = 1;
+    }
+    else {
+        var valorGrupo07aux = aprovGrupo07/metaGrupo07;
+    }   } 
+    valorGrupo07 = (valorGrupo07aux * 100).toFixed(2); 
+    if (metaGrupo07 != 0) {
+        aux ++;
+    }
+
+
     // Total
-    var valorPercaux = (valorGrupo01aux + valorGrupo02aux + valorGrupo03aux + valorGrupo04aux)/aux;
+    var valorPercaux = (valorGrupo01aux + valorGrupo02aux + valorGrupo03aux + valorGrupo04aux + valorGrupo07aux)/aux;
     var valorPerc = (valorPercaux * 100).toFixed(2); 
 
     // Atualizar os campos 
@@ -142,6 +162,7 @@ function calcular1QuantiAmb() {
     document.getElementById("percGrupo02").textContent = valorGrupo02 + '%';
     document.getElementById("percGrupo03").textContent = valorGrupo03 + '%';
     document.getElementById("percGrupo04").textContent = valorGrupo04 + '%';
+    document.getElementById("percGrupo07").textContent = valorGrupo07 + '%';
     document.getElementById("somaPerc").textContent = valorPerc + '%';
 }
 
